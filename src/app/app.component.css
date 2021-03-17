@@ -1,0 +1,35 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+.ttl-container
+{
+    border-bottom: 1px solid lightgray;
+}
+.demo
+{
+    padding-right: 0;
+    padding-left: 0;
+}
+.r-p-n
+{
+    padding-right: 0;
+}
+.l-p-n
+{
+    padding-left: 0;
+}
+.control-btn
+{
+    width: 100%;
+}
+.control-inp
+{
+    margin-left: 0;
+    
+}
+.bill-nav
+{
+    border-bottom: 1px solid red;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+
+}

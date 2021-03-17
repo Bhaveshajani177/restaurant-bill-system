@@ -1,0 +1,218 @@
+<div class="food-main-container">
+<div class="container ttl-container text-center">
+  <h1>Mahadev Fast-Food Stall</h1>
+</div>
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3">
+      <div class="card">
+        <img class="card-img-top" src="/assets/puff.jpg" alt="Card image" style="height:200px">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-sm-7">
+              <h4>Puff</h4>
+            </div>
+            <div class="col-sm-5">
+              <h5>20 Rs</h5>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div class="row">
+            <div class="col-sm-3 r-p-n">
+              <button type="button" class="btn btn-danger control-btn" (click)="Puff_MINUS()">-</button>
+            </div>
+            <div class="col-sm-6 demo">
+                <input type="number" class="form-control" value="{{Puff_Item}}" disabled>
+            </div>
+            <div class="col-sm-3 l-p-n">
+                <button type="button" class="btn btn-primary control-btn" (click)="Puff_ADD()">+</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="card">
+        <img class="card-img-top" src="/assets/dabeli.jpg" alt="Card image" style="height:200px">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-sm-7">
+              <h4>Dabeli</h4>
+            </div>
+            <div class="col-sm-5">
+              <h5>15 Rs</h5>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+            <div class="row">
+              <div class="col-sm-3 r-p-n">
+                <button type="button" class="btn btn-danger control-btn" (click)="Dabeli_MINUS()">-</button>
+              </div>
+              <div class="col-sm-6 demo">
+                  <input type="number" class="form-control" value="{{Dabeli_Item}}" disabled>
+              </div>
+              <div class="col-sm-3 l-p-n">
+                  <button type="button" class="btn btn-primary control-btn" (click)="Dabeli_ADD()">+</button>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="card">
+        <img class="card-img-top" src="/assets/sandwich.jpg" alt="Card image"  style="height:200px">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-sm-7">
+              <h4>Sandwich</h4>
+            </div>
+            <div class="col-sm-5">
+              <h5>25 Rs</h5>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+            <div class="row">
+              <div class="col-sm-3 r-p-n">
+                <button type="button" class="btn btn-danger control-btn" (click)="Sandwich_MINUS()">-</button>
+              </div>
+              <div class="col-sm-6 demo">
+                  <input type="number" class="form-control" placeholder="0" value="{{Sandwich_Item}}" disabled>
+              </div>
+              <div class="col-sm-3 l-p-n">
+                  <button type="button" class="btn btn-primary control-btn" (click)="Sandwich_ADD()">+</button>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="card">
+        <img class="card-img-top" src="/assets/vadapav.jpg" alt="Card image" style="height:200px">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-sm-7">
+              <h4>Vadapav</h4>
+            </div>
+            <div class="col-sm-5">
+              <h5>15 Rs</h5>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+            <div class="row">
+              <div class="col-sm-3 r-p-n">
+                <button type="button" class="btn btn-danger control-btn" (click)="Vadapav_MINUS()">-</button>
+              </div>
+              <div class="col-sm-6 demo">
+                  <input type="number" class="form-control" value="{{Vadapav_Item}}" disabled>
+              </div>
+              <div class="col-sm-3 l-p-n">
+                  <button type="button" class="btn btn-primary control-btn" (click)="Vadapav_ADD()">+</button>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<div class="container text-center">
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" (click)="demo()" >Add</button>
+</div>
+
+<!-- The Modal -->
+<div class="modal" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content" id="content" #content>
+  
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Mahadev Fast-Food Stall</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+  
+        <!-- Modal body -->
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-sm-6 text-left">
+                <h4>Item Name</h4>
+            </div>
+            <div class="col-sm-3 text-left">
+              <h4>Items</h4>
+            </div>
+            <div class="col-sm-3 text-right">
+                <h5>Total</h5>
+            </div>
+          </div>
+          <hr class="bill-nav">
+          <div class="row" *ngIf="pf_fld_bill">
+              <div class="col-sm-6 text-left">
+                  <h5>Puff</h5>
+              </div>
+              <div class="col-sm-3 text-left">
+                <h5>{{Puff_Item}}</h5>
+              </div>
+              <div class="col-sm-3 text-right">
+                  <h5>{{totalpuff}} Rs</h5>
+              </div>
+            </div>
+          <div class="row" *ngIf="dbl_fld_bill">
+            <div class="col-sm-6 text-left">
+                <h5>Dabeli</h5>
+            </div>
+            <div class="col-sm-3 text-left">
+              <h5>{{Dabeli_Item}}</h5>
+            </div>
+            <div class="col-sm-3 text-right">
+                <h5>{{totaldabeli}} Rs</h5>
+            </div>
+          </div>
+          <div class="row" *ngIf="snd_fld_bill">
+              <div class="col-sm-6 text-left">
+                  <h5>Sandwich</h5>
+              </div>
+              <div class="col-sm-3 text-left">
+                <h5>{{Sandwich_Item}}</h5>
+              </div>
+              <div class="col-sm-3 text-right">
+                  <h5>{{totalsandwich}} Rs</h5>
+              </div>
+          </div>
+          <div class="row" *ngIf="vd_fld_bill">
+              <div class="col-sm-6 text-left">
+                  <h5>Vadapav</h5>
+              </div>
+              <div class="col-sm-3 text-left">
+                <h5>{{Vadapav_Item}}</h5>
+              </div>
+              <div class="col-sm-3 text-right">
+                  <h5>{{totalvadapav}} Rs</h5>
+              </div>
+          </div>
+          <hr class="bill-nav">
+          <div class="row">
+              <div class="col-sm-8 text-left">
+                  <h3>Total</h3>
+              </div>
+              <div class="col-sm-4 text-right">
+                  <h5>{{totalbill}} Rs</h5>
+              </div>
+          </div>
+
+        </div>
+  
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="namePDF()">Print</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+  
+      </div>
+    </div>
+</div>
+</div>
+<router-outlet></router-outlet>
